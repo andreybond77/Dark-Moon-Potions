@@ -1,19 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import { CartProvider } from './context/CartContext';
-import { MainLayout } from './components/MainLayout';
-import { HomePage } from './pages/HomePage';
-import { PotionsPage } from './pages/PotionsPage';
-import { CartPage } from './pages/CartPage';
-import { OrdersPage } from './pages/OrdersPage';
-import { ProfilePage } from './pages/ProfilePage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
+import { HashRouter } from 'react-router-dom';  // ← меняем импорт
 
 function App() {
   return (
-    <Router>
+    <HashRouter>  {/* ← меняем BrowserRouter на HashRouter */}
       <AuthProvider>
         <CartProvider>
           <Routes>
@@ -29,8 +18,6 @@ function App() {
           </Routes>
         </CartProvider>
       </AuthProvider>
-    </Router>
+    </HashRouter>
   );
 }
-
-export default App;
